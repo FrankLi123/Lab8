@@ -47,26 +47,36 @@ describe('Party Horn Tests', () => {
 
     it('volume image changes when increasing volumes', () => {    
 
+      cy.get('#volume-number').clear().type('0');
+      cy.get('#volume-image').then(($el)=>{
+        expect($el).to.have.attr('src','./assets/media/icons/volume-level-0.svg');
+      })
       
-      cy.get('#volume-number').clear().type('25');
+      cy.get('#volume-number').clear().type('1');
       cy.get('#volume-image').then(($el)=>{
         expect($el).to.have.attr('src','./assets/media/icons/volume-level-1.svg');
       })
+      cy.get('#volume-number').clear().type('33');
+      cy.get('#volume-image').then(($el)=>{
+        expect($el).to.have.attr('src','./assets/media/icons/volume-level-1.svg');
+      })
+
+      cy.get('#volume-number').clear().type('34');
+      cy.get('#volume-image').then(($el)=>{
+        expect($el).to.have.attr('src','./assets/media/icons/volume-level-2.svg');
+      })
     
-      cy.get('#volume-number').clear().type('53');
+      cy.get('#volume-number').clear().type('66');
       cy.get('#volume-image').then(($el)=>{
         expect($el).to.have.attr('src','./assets/media/icons/volume-level-2.svg');
       })
 
-      cy.get('#volume-number').clear().type('75');
+      cy.get('#volume-number').clear().type('67');
       cy.get('#volume-image').then(($el)=>{
         expect($el).to.have.attr('src','./assets/media/icons/volume-level-3.svg');
       })
 
-      cy.get('#volume-number').clear().type('-3');
-      cy.get('#volume-image').then(($el)=>{
-        expect($el).to.have.attr('src','./assets/media/icons/volume-level-0.svg');
-      })
+     
     });
 
 
