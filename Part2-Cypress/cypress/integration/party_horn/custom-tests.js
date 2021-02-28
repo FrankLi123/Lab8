@@ -65,7 +65,12 @@ describe('Party Horn Tests', () => {
       cy.get('#volume-image').then(($el)=>{
         expect($el).to.have.attr('src','./assets/media/icons/volume-level-2.svg');
       })
-    
+
+      cy.get('#volume-number').clear().type('50');
+      cy.get('#volume-image').then(($el)=>{
+        expect($el).to.have.attr('src','./assets/media/icons/volume-level-2.svg');
+      })
+      
       cy.get('#volume-number').clear().type('66');
       cy.get('#volume-image').then(($el)=>{
         expect($el).to.have.attr('src','./assets/media/icons/volume-level-2.svg');
@@ -75,6 +80,13 @@ describe('Party Horn Tests', () => {
       cy.get('#volume-image').then(($el)=>{
         expect($el).to.have.attr('src','./assets/media/icons/volume-level-3.svg');
       })
+
+      cy.get('#volume-number').clear().type('100');
+      cy.get('#volume-image').then(($el)=>{
+        expect($el).to.have.attr('src','./assets/media/icons/volume-level-3.svg');
+      })
+
+    
 
      
     });
